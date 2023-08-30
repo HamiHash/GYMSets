@@ -5,19 +5,16 @@
 //  Created by Hamed Hashemi on 8/29/23.
 //
 
-import Foundation
-import RealmSwift
-
 extension TableViewController {
     
     func add(_ item: Day) {
         do {
             try realm.write {
                 realm.add(item)
-                tableView.reloadData() // refreshing the tableView
+                tableView.reloadData()
             }
         } catch {
-            print("Error while saving newItem: \(error)")
+            print("Error while saving item: \(error)")
         }
     }
     
@@ -25,4 +22,16 @@ extension TableViewController {
         workoutDays = realm.objects(Day.self)
         tableView.reloadData()
     }
+    
+    func delete(_ item: Day) {
+        do {
+            try realm.write {
+                realm.delete(item)
+                tableView.reloadData()
+            }
+        } catch {
+            print("Error while deleting item: \(error)")
+        }
+    }
+    
 }
