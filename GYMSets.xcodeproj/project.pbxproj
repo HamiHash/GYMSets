@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF2EDD642AA2759300EC09F1 /* SetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EDD632AA2759300EC09F1 /* SetsCell.swift */; };
 		FF95EC3D2A9E509100C1D063 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FF95EC3C2A9E509100C1D063 /* Realm */; };
 		FF95EC3F2A9E509100C1D063 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF95EC3E2A9E509100C1D063 /* RealmSwift */; };
 		FF95EC432A9E50EE00C1D063 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95EC422A9E50EE00C1D063 /* Day.swift */; };
 		FF95EC452A9E510200C1D063 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95EC442A9E510200C1D063 /* Set.swift */; };
-		FF95EC472A9E7AA400C1D063 /* TableViewController + RealmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95EC462A9E7AA400C1D063 /* TableViewController + RealmActions.swift */; };
+		FF95EC472A9E7AA400C1D063 /* RealmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95EC462A9E7AA400C1D063 /* RealmActions.swift */; };
 		FF95EC492A9E951600C1D063 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95EC482A9E951600C1D063 /* CollectionViewController.swift */; };
 		FFCB69752A9D33A2003569C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB69742A9D33A2003569C8 /* AppDelegate.swift */; };
 		FFCB69772A9D33A2003569C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB69762A9D33A2003569C8 /* SceneDelegate.swift */; };
@@ -22,9 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF2EDD632AA2759300EC09F1 /* SetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetsCell.swift; path = ../../../SetsCell.swift; sourceTree = "<group>"; };
 		FF95EC422A9E50EE00C1D063 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		FF95EC442A9E510200C1D063 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
-		FF95EC462A9E7AA400C1D063 /* TableViewController + RealmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController + RealmActions.swift"; sourceTree = "<group>"; };
+		FF95EC462A9E7AA400C1D063 /* RealmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmActions.swift; sourceTree = "<group>"; };
 		FF95EC482A9E951600C1D063 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		FFCB69712A9D33A2003569C8 /* GYMSets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GYMSets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCB69742A9D33A2003569C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				FFCB69782A9D33A2003569C8 /* TableViewController.swift */,
-				FF95EC462A9E7AA400C1D063 /* TableViewController + RealmActions.swift */,
 				FF95EC482A9E951600C1D063 /* CollectionViewController.swift */,
+				FF2EDD632AA2759300EC09F1 /* SetsCell.swift */,
 			);
 			path = Contrllers;
 			sourceTree = "<group>";
@@ -64,6 +66,7 @@
 			children = (
 				FF95EC422A9E50EE00C1D063 /* Day.swift */,
 				FF95EC442A9E510200C1D063 /* Set.swift */,
+				FF95EC462A9E7AA400C1D063 /* RealmActions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,10 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF2EDD642AA2759300EC09F1 /* SetsCell.swift in Sources */,
 				FF95EC452A9E510200C1D063 /* Set.swift in Sources */,
 				FF95EC432A9E50EE00C1D063 /* Day.swift in Sources */,
 				FFCB69792A9D33A2003569C8 /* TableViewController.swift in Sources */,
-				FF95EC472A9E7AA400C1D063 /* TableViewController + RealmActions.swift in Sources */,
+				FF95EC472A9E7AA400C1D063 /* RealmActions.swift in Sources */,
 				FF95EC492A9E951600C1D063 /* CollectionViewController.swift in Sources */,
 				FFCB69752A9D33A2003569C8 /* AppDelegate.swift in Sources */,
 				FFCB69772A9D33A2003569C8 /* SceneDelegate.swift in Sources */,

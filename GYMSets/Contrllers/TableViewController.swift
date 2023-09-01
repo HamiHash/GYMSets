@@ -10,13 +10,13 @@ import RealmSwift
 
 class TableViewController: UITableViewController {
     
-    let realm = try! Realm()
+    let realm = RealmActions() /// initializing our custom realm class
     var workoutDays: Results<Day>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
+        workoutDays = realm.loadDays()
         
         tableView.rowHeight = 55
     }
@@ -43,8 +43,9 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            delete(workoutDays![indexPath.item])
+            realm.delete(workoutDays![indexPath.item])
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
             tableView.endUpdates()
         }
     }
@@ -66,7 +67,8 @@ class TableViewController: UITableViewController {
             if let enteredText = alertController.textFields?.first {
                 let newItem = Day()
                 newItem.day = enteredText.text!
-                self.add(newItem) /// Realm
+                self.realm.add(newItem)
+                self.tableView.reloadData()
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
