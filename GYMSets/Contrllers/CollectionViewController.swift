@@ -10,33 +10,33 @@ import RealmSwift
 
 class CollectionViewController: UICollectionViewController {
 
-    let realm = RealmActions() /// initializing our custom realm class
+    let realm = RealmActions()
+    var relatedDay: Day?
     var workoutSets: Results<Set>?
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        workoutSets = realm.loadSets()
+    
+        workoutSets = relatedDay?.sets as? Results<Set> /// Loading Data
         
         collectionView.register(SetsCell.self, forCellWithReuseIdentifier: SetsCell.reuseIdentifier)
-        
         let listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
         let layout = UICollectionViewCompositionalLayout.list(using: listConfiguration)
         collectionView.collectionViewLayout = layout
         
     }
-    
+        
     //MARK: - CollectionView DataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return workoutSets?.count ?? 1
+        return relatedDay?.sets.count ?? 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetsCell.reuseIdentifier, for: indexPath) as? SetsCell else {
             fatalError("failed to reuse cell")
         }
-        cell.configure(title: workoutSets?[indexPath.item].workout ?? "Add a Set")
+        cell.configure(title: relatedDay?.sets[indexPath.item].workout ?? "Add a Set")
         return cell
     }
     
@@ -49,14 +49,14 @@ class CollectionViewController: UICollectionViewController {
     private func showInputAlert() {
         let alertController = UIAlertController(title: "Workout Day", message: "Add your day title", preferredStyle: .alert)
         alertController.addTextField()
-        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+        let addAction = UIAlertAction(title: "Add", style: .default) { [self] _ in
             if let enteredText = alertController.textFields?.first {
+                print("enteredText: \(enteredText)")
                 let newItem = Set()
                 newItem.workout = enteredText.text!
-                newItem.sets = "1"
-                newItem.reps = "2"
-                self.realm.add(newItem)
-                self.collectionView.reloadData()
+                /// This seems complicated but its not -> 
+                relatedDay = realm.addSet(newItem, relatedDay!)
+                collectionView.reloadData()
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)

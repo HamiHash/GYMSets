@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FF2EDD632AA2759300EC09F1 /* SetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetsCell.swift; path = ../../../SetsCell.swift; sourceTree = "<group>"; };
+		FF2EDD632AA2759300EC09F1 /* SetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsCell.swift; sourceTree = "<group>"; };
 		FF95EC422A9E50EE00C1D063 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		FF95EC442A9E510200C1D063 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		FF95EC462A9E7AA400C1D063 /* RealmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmActions.swift; sourceTree = "<group>"; };

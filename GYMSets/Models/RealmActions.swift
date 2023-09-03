@@ -11,7 +11,7 @@ class RealmActions {
     
     let realm = try! Realm()
     
-    /// Using genetics here so we can add both 'Day' and 'Set' types. We also have to set the <T : Object>  so it follow the Realm Object protocol.
+    /// NOT USEFUL HERE BUT GOOD TO KNOW ==> Using genetics here so we can add both 'Day' and 'Set' types. We also have to set the <T : Object>  so it follow the Realm Object protocol.
     func add<T: Object>(_ item: T) {
         do {
             try realm.write {
@@ -22,12 +22,20 @@ class RealmActions {
         }
     }
     
-    func loadDays() -> Results<Day> {
-        return realm.objects(Day.self)
+    func addSet(_ item: Set, _ parent: Day) -> Day {
+        let newParent: Day = parent
+        do {
+            try realm.write {
+                newParent.sets.append(item)
+            }
+        } catch {
+            print("Error while saving item: \(error)")
+        }
+        return newParent
     }
     
-    func loadSets() -> Results<Set> {
-        return realm.objects(Set.self)
+    func loadDays() -> Results<Day> {
+        return realm.objects(Day.self)
     }
     
     func delete(_ item: Day) {
@@ -39,5 +47,4 @@ class RealmActions {
             print("Error while deleting item: \(error)")
         }
     }
-    
 }

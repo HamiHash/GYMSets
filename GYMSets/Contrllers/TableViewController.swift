@@ -50,10 +50,18 @@ class TableViewController: UITableViewController {
         }
     }
     
+    //MARK: - TableView Delegates
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToSet", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! CollectionViewController
+        let indexItem = tableView.indexPathForSelectedRow
+        destinationVC.relatedDay = workoutDays?[indexItem!.row]
+    }
+
     //MARK: - Add button
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
